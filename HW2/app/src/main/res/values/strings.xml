@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">HW2</string>
+    <string name="AppBar_header">Notifications</string>
+    <string name="NavBar_account">Accounts</string>
+    <!--    card 1    -->
+    <string name="name1">Roman Kamushken</string>
+    <string name="time1">2 days ago</string>
+    <string name="comment1">Check out awesome updates for Android design kit for Figma. Now more screens and more categories.</string>
+    <string name="replays">117 replays</string>
+    <!--    card 2    -->
+    <string name="name2">Tina Turbina</string>
+    <string name="time2">18 minutes ago</string>
+    <string name="comment2">“into component container and with resizing constraints set????”</string>
+    <!--    card 3    -->
+    <string name="name3">Tomek Kuwalskij</string>
+    <string name="time3">2 days ago</string>
+    <string name="comment3">“into component container and with resizing constraints set????”</string>
 </resources>

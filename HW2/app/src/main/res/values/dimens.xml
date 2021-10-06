@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_base.5">4dp</dimen>
+    <dimen name="margin_base">8dp</dimen>
+    <dimen name="margin_base1.5x">12dp</dimen>
+    <dimen name="margin_base2x">16dp</dimen>
+    <dimen name="margin_base3x">24dp</dimen>
+    <!--  AppBar  -->
+    <dimen name="AppBar_height">56dp</dimen>
+    <dimen name="AppBar_header_width">216dp</dimen>
+    <dimen name="AppBar_header_height">24dp</dimen>
+</resources>
