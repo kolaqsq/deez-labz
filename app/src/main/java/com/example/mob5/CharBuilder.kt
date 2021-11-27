@@ -58,4 +58,5 @@ fun CharSelect(charBuilder:CharBuilder) {
 
 fun main(){
     CharSelect(MayBuilder())
+    CharSelect(SolBuilder())
 }
