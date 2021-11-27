@@ -1,62 +1,91 @@
 /*
-Строитель — это порождающий паттерн проектирования, который позволяет создавать объекты пошагово.
+Строитель — это порождающий паттерн проектирования,
+который позволяет создавать объекты пошагово.
 
-В отличие от других порождающих паттернов, Строитель позволяет производить различные продукты, используя один и тот же процесс строительства.
+В отличие от других порождающих паттернов,
+Строитель позволяет производить различные продукты,
+используя один и тот же процесс строительства.
 */
 
 package com.example.mob5
 
 interface CharBuilder{
-    fun setHp(hp:String)
-    fun setGuts(guts:String)
+    fun setHp(hp:Int)
+    fun setGuts(guts:Double)
     fun setWeight(weight:String)
+    fun setPuppetHp(puppetHp:Int)
 }
 
-class MayBuilder():CharBuilder{
-    var character: MutableList<String> = mutableListOf()
+class RushBuilder():CharBuilder{
+    var character: MutableList<Any> = mutableListOf()
 
-    override fun setHp(hp:String) {
-        character.add("11000")
+    override fun setHp(hp:Int) {
+        character.add(hp)
     }
 
-    override fun setGuts(guts:String) {
-        character.add("0.95")
+    override fun setGuts(guts:Double) {
+        character.add(guts)
     }
 
     override fun setWeight(weight:String) {
-        character.add("light")
+        character.add(weight)
     }
 
-    fun getResult():MutableList<String>{
+    override fun setPuppetHp(puppetHp: Int) {
+    }
+
+    fun getResult():MutableList<Any>{
         return character
     }
 }
 
-class SolBuilder():CharBuilder{
-    var character: MutableList<String> = mutableListOf()
+class PuppetBuilder():CharBuilder{
+    var character: MutableList<Any> = mutableListOf()
 
-    override fun setHp(hp:String) {
-        character.add("15000")
+    override fun setHp(hp:Int) {
+        character.add(hp/2)
     }
 
-    override fun setGuts(guts:String) {
-        character.add("1.05")
+    override fun setGuts(guts:Double) {
+        character.add(guts)
     }
 
     override fun setWeight(weight:String) {
-        character.add("heavy")
+        character.add(weight)
     }
 
-    fun getResult():MutableList<String>{
+    override fun setPuppetHp(puppetHp: Int) {
+        character.add(puppetHp)
+    }
+
+    fun getResult():MutableList<Any>{
         return character
     }
 }
 
-fun CharSelect(charBuilder:CharBuilder) {
-    // TODO: 27.11.2021
+class CharStats() {
+    fun StatsBundle(pattern:CharBuilder) {
+        pattern.setHp(10000)
+        pattern.setGuts(0.96)
+        pattern.setWeight("light")
+        pattern.setPuppetHp(3000)
+    }
+}
+
+class App() {
+    fun CharSelect() {
+        val stats = CharStats()
+        val rush = RushBuilder()
+        val puppet = PuppetBuilder()
+
+        stats.StatsBundle(rush)
+        println(rush.getResult())
+
+        stats.StatsBundle(puppet)
+        println(puppet.getResult())
+    }
 }
 
 fun main(){
-    CharSelect(MayBuilder())
-    CharSelect(SolBuilder())
+    App().CharSelect()
 }
