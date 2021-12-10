@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">HW3</string>
+
+    <string name="button1_text">Шаг 1</string>
+    <string name="button2_text">Шаг 2</string>
+    <string name="button3_text">Шаг 3</string>
+    <string name="button4_text">Шаг 4</string>
+
+    <string name="fragment_first_text">Введите первое число</string>
+    <string name="fragment_second_text">Введите второе число</string>
+    <string name="fragment_third_text">Выберите операцию</string>
+    <string name="fragment_fourth_text">Ответ</string>
+
+    <string name="button_prev">Назад</string>
+    <string name="button_next">Далее</string>
+
+    <string name="EditText_hint1">Нажми на меня</string>
+    <string name="TextView_text1">Что-то пошло не так …</string>
+    <string name="TextView_info">Я покажу инфу об операции …</string>
 </resources>
