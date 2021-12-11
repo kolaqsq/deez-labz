@@ -27,8 +27,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top_header"
             android:autofillHints="2323"
+            android:focusable="false"
             android:hint="@string/EditText_hint1"
             android:inputType="number"
+            android:maxLength="8"
             android:minHeight="48dp"
             android:singleLine="true"
 
@@ -46,6 +48,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_input" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

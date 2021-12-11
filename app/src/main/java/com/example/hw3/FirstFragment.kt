@@ -14,6 +14,7 @@ class FirstFragment : Fragment() {
     private lateinit var binding: FragmentFirstBinding
 
     private val dataModel: DataModel by activityViewModels()
+    private var numList: List<android.widget.Button> = mutableListOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +27,22 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        // Инициализируем кнопки-цифры
+        numList = listOf(
+            binding.includeNum.input0,
+            binding.includeNum.input1,
+            binding.includeNum.input2,
+            binding.includeNum.input3,
+            binding.includeNum.input4,
+            binding.includeNum.input5,
+            binding.includeNum.input6,
+            binding.includeNum.input7,
+            binding.includeNum.input8,
+            binding.includeNum.input9
+        )
+
         // Добавляем тригерр на изменения editText
         // Передаем данные через ViewModels
         binding.textInput.doAfterTextChanged {
@@ -33,8 +50,24 @@ class FirstFragment : Fragment() {
                 dataModel.number1.value = binding.textInput.text.toString().toInt()
             } else dataModel.number1.value = null
         }
+
+        // Добавляем тригерры для работы кнопок-цифр
+        for (i in numList.indices) {
+            numList[i].setOnClickListener {
+                binding.textInput.append(i.toString())
+            }
+        }
+
+        // Добавляем триггеры для работы кнопки удаления
+        binding.includeNum.inputDelete.setOnClickListener {
+            val text = binding.textInput.text.toString()
+            if (text.isNotEmpty()) {
+                binding.textInput.setText(text.substring(0, text.length - 1))
+            }
+        }
+
         // Добавляем тригерры для перехода на следующий fragment
-        binding.button.setOnClickListener {
+        binding.includeNum.inputEnter.setOnClickListener {
             val activityCallBack = requireActivity() as ActivityCallBack
             activityCallBack.next()
         }
