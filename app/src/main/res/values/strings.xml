@@ -17,6 +17,11 @@
     <string name="input8_text">8</string>
     <string name="input9_text">9</string>
 
+    <string name="inputAddition_text">+</string>
+    <string name="inputSubtraction_text">-</string>
+    <string name="inputDivision_text">/</string>
+    <string name="inputMultiplication_text">x</string>
+
     <string name="fragment_first_text">Введите первое число</string>
     <string name="fragment_second_text">Введите второе число</string>
     <string name="fragment_third_text">Выберите операцию</string>

@@ -10,6 +10,10 @@
     <dimen name="input_textSize">35sp</dimen>
     <dimen name="input_buttonRound">50dp</dimen>
 
+    <dimen name="input_big_size">125dp</dimen>
+    <dimen name="input_big_textSize">50sp</dimen>
+    <dimen name="input_big_marginTop">100dp</dimen>
+
     <dimen name="textSize_header">32sp</dimen>
     <dimen name="textSize_normal">20sp</dimen>
     <dimen name="textSize_info">12sp</dimen>

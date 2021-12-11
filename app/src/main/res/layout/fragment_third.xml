@@ -14,46 +14,81 @@
             style="@style/TextView_header"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/fragment_third_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/text_input"
-            style="@style/EditTextStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_top_header"
-            android:autofillHints="2323"
-            android:hint="@string/EditText_hint1"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:singleLine="true"
-
+            android:layout_marginTop="@dimen/input_big_marginTop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text" />
+            app:layout_constraintTop_toBottomOf="@id/text">
 
-        <Button
-            android:id="@+id/button_prev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/button_marginTop"
-            android:text="@string/button_prev"
-            app:layout_constraintEnd_toStartOf="@+id/button_next"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_input" />
+            <Button
+                android:id="@+id/inputAddition"
+                android:layout_width="@dimen/input_big_size"
+                android:layout_height="@dimen/input_big_size"
+                android:layout_margin="10dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/inputAddition_text"
+                android:textSize="@dimen/input_big_textSize"
+                app:cornerRadius="@dimen/input_buttonRound"
 
-        <Button
-            android:id="@+id/button_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/button_marginTop"
-            android:text="@string/button_next"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/button_prev"
-            app:layout_constraintTop_toBottomOf="@id/text_input" />
+                app:layout_constraintEnd_toStartOf="@+id/inputSubtraction"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/inputSubtraction"
+                android:layout_width="@dimen/input_big_size"
+                android:layout_height="@dimen/input_big_size"
+                android:layout_margin="10dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/inputSubtraction_text"
+                android:textSize="@dimen/input_big_textSize"
+                app:cornerRadius="@dimen/input_buttonRound"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/inputAddition"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/inputDivision"
+                android:layout_width="@dimen/input_big_size"
+                android:layout_height="@dimen/input_big_size"
+                android:layout_margin="10dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/inputDivision_text"
+                android:textSize="@dimen/input_big_textSize"
+                app:cornerRadius="@dimen/input_buttonRound"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/inputMultiplication"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputAddition" />
+
+            <Button
+                android:id="@+id/inputMultiplication"
+                android:layout_width="@dimen/input_big_size"
+                android:layout_height="@dimen/input_big_size"
+                android:layout_margin="10dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/inputMultiplication_text"
+                android:textSize="@dimen/input_big_textSize"
+                app:cornerRadius="@dimen/input_buttonRound"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/inputDivision"
+                app:layout_constraintTop_toBottomOf="@+id/inputSubtraction" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
