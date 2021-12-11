@@ -1,9 +1,11 @@
 package com.example.hw3
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.hw3.databinding.ActivityMainBinding
 
@@ -65,11 +67,14 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
     // Функция для подсветки рабочей кнопки через position
     private fun buttonSelected() {
         for (i in 0 until position) {
-            buttonList[i].alpha = 0.5F
+            buttonList[i].backgroundTintList =
+                ColorStateList.valueOf(ContextCompat.getColor(applicationContext, R.color.green))
         }
-        buttonList[position].alpha = 1.0F
+        buttonList[position].backgroundTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(applicationContext, R.color.purple))
         for (i in position + 1..3) {
-            buttonList[i].alpha = 0.5F
+            buttonList[i].backgroundTintList =
+                ColorStateList.valueOf(ContextCompat.getColor(applicationContext, R.color.green))
         }
     }
 
