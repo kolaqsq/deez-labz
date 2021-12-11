@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/input1"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input1_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toStartOf="@+id/input2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/input2"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input2_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toStartOf="@+id/input3"
+        app:layout_constraintStart_toEndOf="@+id/input1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/input3"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input3_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/input4"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input4_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toStartOf="@+id/input5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input1" />
+
+    <Button
+        android:id="@+id/input5"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input5_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toStartOf="@+id/input6"
+        app:layout_constraintStart_toEndOf="@+id/input4"
+        app:layout_constraintTop_toBottomOf="@+id/input2" />
+
+    <Button
+        android:id="@+id/input6"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input6_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input5"
+        app:layout_constraintTop_toBottomOf="@+id/input3" />
+
+    <Button
+        android:id="@+id/input7"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input7_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toStartOf="@+id/input8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input4" />
+
+    <Button
+        android:id="@+id/input8"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input8_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toStartOf="@+id/input9"
+        app:layout_constraintStart_toEndOf="@+id/input7"
+        app:layout_constraintTop_toBottomOf="@+id/input5" />
+
+    <Button
+        android:id="@+id/input9"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input9_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input8"
+        app:layout_constraintTop_toBottomOf="@+id/input6" />
+
+    <Button
+        android:id="@+id/inputDelete"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/orange"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:icon="@drawable/ic_backspace"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/input0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input7" />
+
+    <Button
+        android:id="@+id/input0"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="@string/input0_text"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/inputEnter"
+        app:layout_constraintStart_toEndOf="@+id/inputDelete"
+        app:layout_constraintTop_toBottomOf="@+id/input8" />
+
+    <Button
+        android:id="@+id/inputEnter"
+        android:layout_width="@dimen/input_size"
+        android:layout_height="@dimen/input_size"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/purple"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="10dp"
+        android:textSize="@dimen/input_textSize"
+        app:cornerRadius="@dimen/input_buttonRound"
+        app:icon="@drawable/ic_keyboard_tab"
+        app:iconPadding="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input0"
+        app:layout_constraintTop_toBottomOf="@+id/input9" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

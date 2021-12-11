@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_top_header">100dp</dimen>
+    <dimen name="margin_top_header">20dp</dimen>
     <dimen name="button_marginTop">48dp</dimen>
     <dimen name="margin_button_left">5dp</dimen>
     <dimen name="margin_button_right">5dp</dimen>
+
+    <dimen name="input_size">75dp</dimen>
+    <dimen name="input_marginTop">50dp</dimen>
+    <dimen name="input_textSize">35sp</dimen>
+    <dimen name="input_buttonRound">50dp</dimen>
 
     <dimen name="textSize_header">32sp</dimen>
     <dimen name="textSize_normal">20sp</dimen>
