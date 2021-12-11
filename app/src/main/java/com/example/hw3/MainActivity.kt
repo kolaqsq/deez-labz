@@ -64,6 +64,20 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
         }
     }
 
+    // Переопределяем кнопку назад
+    override fun onBackPressed() {
+        if (position > 0) {
+            val transaction = supportFragmentManager
+                .beginTransaction()
+                .detach(fragmentList[position])
+                .attach(fragmentList[position - 1])
+                .addToBackStack("prev_fragment")
+            transaction.commit()
+            position -= 1
+            buttonSelected()
+        } else finishAfterTransition()
+    }
+
     // Функция для подсветки рабочей кнопки через position
     private fun buttonSelected() {
         for (i in 0 until position) {
