@@ -47,13 +47,20 @@
 
         <Button
             android:id="@+id/button_prev"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/button_marginTop"
-            android:text="@string/button_prev"
-
+            android:layout_width="@dimen/input_size"
+            android:layout_height="@dimen/input_size"
+            android:layout_marginTop="@dimen/input_big_marginTop"
+            android:backgroundTint="@color/purple"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp"
+            android:textSize="@dimen/input_textSize"
+            app:cornerRadius="@dimen/input_buttonRound"
+            app:icon="@drawable/ic_arrow_back"
+            app:iconPadding="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_output_int" />
+            app:layout_constraintTop_toBottomOf="@+id/text_output_int" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

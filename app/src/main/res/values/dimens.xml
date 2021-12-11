@@ -16,5 +16,5 @@
 
     <dimen name="textSize_header">32sp</dimen>
     <dimen name="textSize_normal">20sp</dimen>
-    <dimen name="textSize_info">12sp</dimen>
+    <dimen name="textSize_info">15sp</dimen>
 </resources>

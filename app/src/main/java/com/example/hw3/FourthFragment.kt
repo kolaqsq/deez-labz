@@ -28,8 +28,10 @@ class FourthFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         // Включаем наблюдателя после создания View
         initialization()
+
         // Добавляем тригерр для перехода на предыдущий fragment
         binding.buttonPrev.setOnClickListener {
             val activityCallBack = requireActivity() as ActivityCallBack
