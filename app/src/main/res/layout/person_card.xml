@@ -6,12 +6,13 @@
     android:padding="@dimen/item_margin">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardId"
+        android:id="@+id/infoContainer"
         style="@style/Widget.Material3.CardView.Filled"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
-        android:focusable="true">
+        android:focusable="true"
+        android:checkable="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardLayout"
