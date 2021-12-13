@@ -15,43 +15,44 @@
         android:padding="@dimen/item_margin_2x">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/item_margin_2x">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/image_avatar"
+                android:id="@+id/cardPhoto"
                 android:layout_width="@dimen/icon_size"
                 android:layout_height="@dimen/icon_size"
 
-                app:layout_constraintEnd_toStartOf="@id/item_name"
+                app:layout_constraintEnd_toStartOf="@id/cardName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/item_name"
+                android:id="@+id/cardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/item_margin_2x"
                 android:text="@string/Name_example"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
 
-                app:layout_constraintStart_toEndOf="@id/image_avatar"
-                app:layout_constraintTop_toTopOf="@id/image_avatar" />
+                app:layout_constraintStart_toEndOf="@id/cardPhoto"
+                app:layout_constraintTop_toTopOf="@id/cardPhoto" />
 
             <TextView
-                android:id="@+id/item_date"
+                android:id="@+id/cardDates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/Dates_example"
                 android:textAppearance="?attr/textAppearanceBodySmall"
                 android:textColor="?android:attr/textColorHint"
 
-                app:layout_constraintStart_toStartOf="@id/item_name"
-                app:layout_constraintTop_toBottomOf="@id/item_name" />
+                app:layout_constraintStart_toStartOf="@id/cardName"
+                app:layout_constraintTop_toBottomOf="@id/cardName" />
 
             <TextView
-                android:id="@+id/item_information"
+                android:id="@+id/cardInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_margin_2x"
@@ -61,11 +62,12 @@
                 android:scrollHorizontally="true"
                 android:text="@string/Info_example"
                 android:textAppearance="?attr/textAppearanceBodyMedium"
+
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_avatar" />
+                app:layout_constraintTop_toBottomOf="@+id/cardPhoto" />
 
             <TextView
-                android:id="@+id/item_gender_type"
+                android:id="@+id/cardSex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/item_margin"
@@ -75,17 +77,17 @@
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_information" />
+                app:layout_constraintTop_toBottomOf="@id/cardInfo" />
 
             <Button
-                android:id="@+id/button_like"
+                android:id="@+id/cardLikeButton"
                 android:layout_width="@dimen/button_like_size"
                 android:layout_height="@dimen/button_like_size"
                 android:layout_marginTop="@dimen/item_margin"
                 android:background="@drawable/ic_thumb_up"
 
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_information" />
+                app:layout_constraintTop_toBottomOf="@id/cardInfo" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
