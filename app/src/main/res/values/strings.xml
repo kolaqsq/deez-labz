@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">HW4</string>
+
+    <string name="AppBar_title">Личности</string>
+
+    <string name="Name_example">Наполеон Бонапарт</string>
+    <string name="Dates_example">1769 – 1821</string>
+    <string name="Info_example">император французов (фр. Empereur des Français) в 1804—1814 и 1815 годах, полководец и государственный деятель</string>
+    <string name="Sex_example">Мужчина</string>
 </resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="item_margin_2x">16dp</dimen>
+    <dimen name="layout_minimum">0dp</dimen>
+
+    <dimen name="icon_size">40dp</dimen>
+    <dimen name="icon_size_big">120dp</dimen>
+
+    <dimen name="button_like_size">24dp</dimen>
+
+    <dimen name="textSize_normal">16sp</dimen>
+    <dimen name="textSize_big">22sp</dimen>
+</resources>
