@@ -2,109 +2,115 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollHorizontally="true">
+    android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/personDesc"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/item_margin_2x">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/cardPhoto"
-            android:layout_width="@dimen/icon_size_big"
-            android:layout_height="@dimen/icon_size_big"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/personDesc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/item_margin_2x">
 
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/cardPhoto"
+                android:layout_width="@dimen/icon_size_big"
+                android:layout_height="@dimen/icon_size_big"
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardHeader"
-            style="@style/Widget.Material3.CardView.Filled"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/icon_size_big"
-            android:layout_marginStart="@dimen/item_margin_2x"
-            android:checkable="false"
-            android:clickable="false"
-            android:focusable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cardPhoto"
-            app:layout_constraintTop_toTopOf="@id/cardPhoto">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cardHeaderLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/item_margin_2x">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHeader"
+                style="@style/Widget.Material3.CardView.Filled"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/icon_size_big"
+                android:layout_marginStart="@dimen/item_margin_2x"
+                android:checkable="false"
+                android:clickable="false"
+                android:focusable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/cardPhoto"
+                app:layout_constraintTop_toTopOf="@id/cardPhoto">
 
-                <TextView
-                    android:id="@+id/cardName"
-                    android:layout_width="@dimen/layout_minimum"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Name_example"
-                    android:textAppearance="?attr/textAppearanceTitleLarge"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cardHeaderLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/item_margin_2x">
+
+                    <TextView
+                        android:id="@+id/cardName"
+                        android:layout_width="@dimen/layout_minimum"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Name_example"
+                        android:textAppearance="?attr/textAppearanceTitleLarge"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/cardDates"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Dates_example"
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:textColor="?android:attr/textColorHint"
+
+                        app:layout_constraintStart_toStartOf="@id/cardName"
+                        app:layout_constraintTop_toBottomOf="@id/cardName" />
+
+                    <TextView
+                        android:id="@+id/cardSex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Sex_example"
+                        android:textAppearance="?attr/textAppearanceOverline"
+                        android:textColor="?android:attr/textColorLink"
+
+                        app:layout_constraintStart_toStartOf="@id/cardDates"
+                        app:layout_constraintTop_toBottomOf="@id/cardDates" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDesc"
+                style="@style/Widget.Material3.CardView.Filled"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_margin_2x"
+                android:checkable="false"
+                android:clickable="false"
+                android:focusable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardPhoto">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cardDescLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/item_margin_2x">
+
+                    <TextView
+                        android:id="@+id/cardInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:text="@string/Desc_example"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/cardDates"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Dates_example"
-                    android:textAppearance="?attr/textAppearanceBodyMedium"
-                    android:textColor="?android:attr/textColorHint"
-
-                    app:layout_constraintStart_toStartOf="@id/cardName"
-                    app:layout_constraintTop_toBottomOf="@id/cardName" />
-
-                <TextView
-                    android:id="@+id/cardSex"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Sex_example"
-                    android:textAppearance="?attr/textAppearanceButton"
-                    android:textColor="?android:attr/textColorLink"
-
-                    app:layout_constraintStart_toStartOf="@id/cardDates"
-                    app:layout_constraintTop_toBottomOf="@id/cardDates" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardDesc"
-            style="@style/Widget.Material3.CardView.Filled"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/item_margin_2x"
-            android:checkable="false"
-            android:clickable="false"
-            android:focusable="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardPhoto">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cardDescLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/item_margin_2x">
-
-                <TextView
-                    android:id="@+id/cardInfo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:text="@string/Desc_example"
-                    android:textAppearance="?attr/textAppearanceBodyLarge"
-
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
