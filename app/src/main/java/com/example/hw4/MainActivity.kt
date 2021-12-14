@@ -1,14 +1,14 @@
 package com.example.hw4
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.hw4.databinding.ActivityMainBinding
 import android.util.Log
 import android.view.Menu
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.example.hw4.databinding.ActivityMainBinding
 import java.util.*
 
 

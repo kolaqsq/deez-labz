@@ -10,9 +10,9 @@
         style="@style/Widget.Material3.CardView.Filled"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:checkable="false"
         android:clickable="true"
-        android:focusable="true"
-        android:checkable="false">
+        android:focusable="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cardLayout"
