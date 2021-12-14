@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
     private var viewHolder: ViewHolderFragment = ViewHolderFragment()
     private var itemDetail: PersonDetailsFragment = PersonDetailsFragment()
     private val fragmentList: MutableList<Fragment> = mutableListOf()
+    private var position: Int = 0
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,15 +29,7 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
 
         // Иницилизация appBar и кнопки назад в appBar
         setSupportActionBar(bindingMain.appBar)
-        bindingMain.appBar.setNavigationOnClickListener {
-            val transactionInitialization = supportFragmentManager
-                .beginTransaction()
-                .detach(fragmentList[1])
-                .attach(fragmentList[0])
-                .addToBackStack("swap fragment")
-            transactionInitialization.commit()
-            searchViewChanged(true, "Главная страница")
-        }
+        bindingMain.appBar.setNavigationOnClickListener { prev() }
 
         // Иницилизация списка фрагментов
         fragmentList.add(viewHolder)
@@ -69,6 +62,7 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
                 }
                 return true
             }
+
             override fun onQueryTextChange(query: String?): Boolean {
                 if (query != null) {
                     searchFilter(query)
@@ -81,10 +75,9 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
 
     // Переопределение действия на кнопку назад
     override fun onBackPressed() {
-        if (supportFragmentManager.backStackEntryCount > 1){
-            supportFragmentManager.popBackStack()
-        }
-        searchViewChanged(true, "Главная страница")
+        if (position == 1) {
+            prev()
+        } else finishAfterTransition()
     }
 
     // Переход в в frame_item_detail и изменение appBar
@@ -97,6 +90,18 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
         transactionInitialization.commit()
         itemDetail.getPicture(person)
         searchViewChanged(false, person.Name)
+        position = 1
+    }
+
+    override fun prev() {
+        val transactionInitialization = supportFragmentManager
+            .beginTransaction()
+            .detach(fragmentList[1])
+            .attach(fragmentList[0])
+            .addToBackStack("swap fragment")
+        transactionInitialization.commit()
+        searchViewChanged(true, "Главная страница")
+        position = 0
     }
 
     // Фильтр массива, изменение локального массива в Adapter и обновление ViewHolder
@@ -120,7 +125,7 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
     }
 
     // Включение и выключение кнопки поиска в appBar
-    private fun searchViewChanged(active: Boolean, title: String){
+    private fun searchViewChanged(active: Boolean, title: String) {
         supportActionBar?.setDisplayHomeAsUpEnabled(!active)
         supportActionBar?.setDisplayShowHomeEnabled(!active)
         bindingMain.appBar.findViewById<SearchView>(R.id.search).isVisible = active
@@ -130,4 +135,5 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
 
 interface ActivityCallBack {
     fun showDetails(person: Person)
+    fun prev()
 }
