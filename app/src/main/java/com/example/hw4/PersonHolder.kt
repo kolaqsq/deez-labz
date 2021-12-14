@@ -1,7 +1,5 @@
 package com.example.hw4
 
-import android.graphics.drawable.Drawable
-
 
 object PersonHolder {
     private val personName = arrayOf(
@@ -63,7 +61,7 @@ object PersonHolder {
 
         "Сидни Н. Шур - производитель микрофонов, основатель компании Shure Incorporated",
 
-        "Вячеслав Самсонов - провайдер кода",
+        "Вячеслав Самсонов - донор кода",
 
         )
 
@@ -166,7 +164,7 @@ object PersonHolder {
                 "компания выросла до более чем 75 сотрудников\n" +
                 "В настоящее время Shure является одним из мастодонтов в индустрии звукового оборудования",
 
-        "Вячеслав Самсонов - провайдер кода",
+        "Вячеслав Самсонов - донор кода",
     )
 
     private val personSex = arrayOf(
