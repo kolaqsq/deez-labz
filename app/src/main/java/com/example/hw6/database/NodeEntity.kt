@@ -1,4 +1,4 @@
-package com.example.hw6.database.entity
+package com.example.hw6.database
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo

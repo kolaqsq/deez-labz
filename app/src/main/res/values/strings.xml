@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HW6</string>
+
+    <string name="node_blank">1000–7?</string>
+    <string name="extended_fab_label">Add Node</string>
+
+    <string name="add_dialog_title">Add Node</string>
+    <string name="add_dialog_message">Enter Node value</string>
+    <string name="add_dialog_cancel">Cancel</string>
+    <string name="add_dialog_add">Add</string>
 </resources>

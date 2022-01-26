@@ -1,34 +1,31 @@
 package com.example.hw6
 
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
-import com.example.hw6.database.AppDatabase
-import com.example.hw6.database.entity.NodeEntity
+import androidx.fragment.app.Fragment
+import com.example.hw6.database.NodeViewModel
+import com.example.hw6.database.NodeViewModelFactory
+import com.example.hw6.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        startDatabase()
+    private lateinit var binding: ActivityMainBinding
+    private val fragmentList: MutableList<Fragment> = mutableListOf()
+    val nodeViewModel: NodeViewModel by viewModels {
+        NodeViewModelFactory((application as HW6).repository)
     }
 
-    private fun startDatabase() {
-        val db = Room.databaseBuilder(
-            this,
-            AppDatabase::class.java, "nodes-db"
-        )
-            .allowMainThreadQueries()
-            .build()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val nodeDao = db.nodeDao()
+        fragmentList.add(AllNodesFragment())
 
-        val node = nodeDao.loadAllByIds(intArrayOf(1))
-//        nodeDao.insertAll(node)
-        val nodeEntities: List<NodeEntity> = nodeDao.getAll()
-//        nodeDao.getRels()
-        Log.d("nodes", nodeEntities.toString())
+        val transactionInitialization = supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, fragmentList[0])
+            .addToBackStack("initialization fragment")
+        transactionInitialization.commit()
     }
 }
