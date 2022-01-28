@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+@TypeConverters(NodeConverter::class)
 @Database(entities = [NodeEntity::class], version = 4, exportSchema = false)
 abstract class NodeDatabase : RoomDatabase() {
     abstract fun nodeDao(): NodeDao
@@ -30,11 +32,11 @@ abstract class NodeDatabase : RoomDatabase() {
             nodeDao.deleteAll()
 
             // Add sample nodes.
-            var node = NodeEntity(0, 1)
+            var node = NodeEntity(0, 1, listOf())
             nodeDao.insert(node)
-            node = NodeEntity(0, 2)
+            node = NodeEntity(0, 2, listOf())
             nodeDao.insert(node)
-            node = NodeEntity(0, 3)
+            node = NodeEntity(0, 3, listOf())
             nodeDao.insert(node)
         }
     }

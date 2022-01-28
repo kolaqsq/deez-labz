@@ -8,4 +8,7 @@
     <string name="add_dialog_message">Enter Node value</string>
     <string name="add_dialog_cancel">Cancel</string>
     <string name="add_dialog_add">Add</string>
+
+    <string name="bottom_nav_label_children">Children</string>
+    <string name="bottom_nav_label_parents">Parents</string>
 </resources>
