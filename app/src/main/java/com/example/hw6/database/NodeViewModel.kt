@@ -10,15 +10,16 @@ class NodeViewModel(private val repository: NodeRepository) : ViewModel() {
     // - We can put an observer on the data (instead of polling for changes) and only update the
     //   the UI when the data actually changes.
     // - Repository is completely separated from the UI through the ViewModel.
-    var allNodes: LiveData<List<NodeEntity>> = repository.allNodes.asLiveData()
+    val allNodes: LiveData<List<NodeEntity>> = repository.allNodes.asLiveData()
+//    val allChildren: LiveData<List<NodeEntity>> = repository.allNodes.asLiveData()
 
     val currentNode: MutableLiveData<NodeEntity> by lazy {
         MediatorLiveData()
     }
 
-//    val allChildren: MutableLiveData<List<NodeEntity>> by lazy {
-//        MediatorLiveData()
-//    }
+    val nodesForRelation: MutableLiveData<List<NodeEntity>> by lazy {
+        MediatorLiveData()
+    }
 
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
@@ -27,30 +28,47 @@ class NodeViewModel(private val repository: NodeRepository) : ViewModel() {
         repository.insert(nodeEntity)
     }
 
+    fun addRelation(parent: NodeEntity, child: NodeEntity) = viewModelScope.launch {
+        Log.d("addrel", child.nodes.toString())
+        val childNodes: MutableList<NodeEntity> = child.nodes.toMutableList()
+        childNodes.add(parent)
+        child.nodes = childNodes.toList()
+        Log.d("addrel", child.nodes.toString())
+        repository.update(child)
+    }
+
 //    fun updateModels() = viewModelScope.launch {
 //        allNodes = repository.loadAll().asLiveData()
 //    }
 
-//    fun getChildren(node: NodeEntity?): List<NodeEntity>? {
-//        val children: List<NodeEntity>? = allNodes.value
-//
-//        if (node != null && children != null) {
-//            removeParents(node, children as MutableList<NodeEntity>)
-//        }
-//
-//        Log.d("removeParent_children", children.toString())
-//        Log.d("removeParent_allNodes", allNodes.value.toString())
-//        return children
-//    }
-//
-//    private fun removeParents(node: NodeEntity, children: MutableList<NodeEntity>) {
-//        children.remove(node)
-//
-//        for (item in node.nodes) {
-//            removeParents(item, children)
-//        }
-//        Log.d("removeParent", node.value.toString())
-//    }
+    fun getChildren(node: NodeEntity?, list: MutableLiveData<List<NodeEntity>>) {
+        val parents: MutableList<NodeEntity> = mutableListOf()
+        val children: MutableList<NodeEntity> = mutableListOf()
+
+        if (node != null) {
+            removeParents(node, parents)
+        }
+
+        for (item in allNodes.value!!) {
+            if (item !in parents) {
+                children.add(item)
+            }
+        }
+
+        list.value = children
+
+        Log.d("removeParent_children", parents.toString())
+        Log.d("removeParent_allNodes", allNodes.value.toString())
+    }
+
+    private fun removeParents(node: NodeEntity, parents: MutableList<NodeEntity>) {
+        parents.add(node)
+
+        for (item in node.nodes) {
+            removeParents(item, parents)
+        }
+        Log.d("removeParent", node.value.toString())
+    }
 }
 
 class NodeViewModelFactory(private val repository: NodeRepository) : ViewModelProvider.Factory {

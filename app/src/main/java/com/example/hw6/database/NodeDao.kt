@@ -1,9 +1,6 @@
 package com.example.hw6.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -16,6 +13,9 @@ interface NodeDao {
 
     @Insert
     suspend fun insert(nodeEntity: NodeEntity)
+
+    @Update
+    suspend fun update(node: NodeEntity)
 
     @Delete
     suspend fun delete(nodeEntity: NodeEntity)

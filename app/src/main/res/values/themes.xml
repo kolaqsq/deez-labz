@@ -29,15 +29,15 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_primaryInverse</item>
     </style>
 
-    <style name="ThemeOverlay.App.Card.Custom0" parent="Widget.Material3.CardView.Filled">
+    <style name="Custom0" parent="Widget.Material3.CardView.Filled">
         <item name="cardBackgroundColor">@color/md_theme_light_custom0Container</item>
     </style>
 
-    <style name="ThemeOverlay.App.Card.Custom1" parent="Widget.Material3.CardView.Filled">
+    <style name="Custom1" parent="Widget.Material3.CardView.Filled">
         <item name="cardBackgroundColor">@color/md_theme_light_custom1Container</item>
     </style>
 
-    <style name="ThemeOverlay.App.Card.Custom2" parent="Widget.Material3.CardView.Filled">
+    <style name="Custom2" parent="Widget.Material3.CardView.Filled">
         <item name="cardBackgroundColor">@color/md_theme_light_custom2Container</item>
     </style>
 </resources>

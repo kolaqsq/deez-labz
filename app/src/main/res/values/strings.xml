@@ -6,8 +6,12 @@
 
     <string name="add_dialog_title">Add Node</string>
     <string name="add_dialog_message">Enter Node value</string>
-    <string name="add_dialog_cancel">Cancel</string>
-    <string name="add_dialog_add">Add</string>
+
+    <string name="add_relation_dialog_title">Add Relation</string>
+    <string name="add_relation_dialog_message">Accept to proceed</string>
+
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_add">Add</string>
 
     <string name="bottom_nav_label_children">Children</string>
     <string name="bottom_nav_label_parents">Parents</string>

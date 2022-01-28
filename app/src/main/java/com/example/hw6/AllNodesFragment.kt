@@ -24,7 +24,7 @@ import com.google.android.material.textfield.TextInputLayout
 
 class AllNodesFragment : Fragment() {
     private lateinit var binding: AllNodesFragmentBinding
-    private val adapter = NodeListAdapter(this::showRelations)
+    private val adapter = NodeListAdapter(this::showRelations, null)
     private val nodeViewModel: NodeViewModel by activityViewModels {
         NodeViewModelFactory((activity?.application as HW6).repository)
     }
@@ -40,6 +40,14 @@ class AllNodesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        nodeViewModel.allNodes.observe(viewLifecycleOwner) { nodes ->
+            // Update the cached copy of the nodes in the adapter.
+            nodes?.let {
+                adapter.submitList(it)
+                adapter.allNodes = nodes
+            }
+        }
 
         setupRecycleView()
 
@@ -86,10 +94,10 @@ class AllNodesFragment : Fragment() {
                     .setTitle(resources.getString(R.string.add_dialog_title))
                     .setMessage(resources.getString(R.string.add_dialog_message))
                     .setView(constraintLayout)
-                    .setNegativeButton(resources.getString(R.string.add_dialog_cancel)) { dialog, which ->
+                    .setNegativeButton(resources.getString(R.string.dialog_cancel)) { dialog, which ->
                         // Respond to negative button press
                     }
-                    .setPositiveButton(resources.getString(R.string.add_dialog_add)) { dialog, which ->
+                    .setPositiveButton(resources.getString(R.string.dialog_add)) { dialog, which ->
                         if (TextUtils.isEmpty(textInputEditText.text) or (textInputEditText.text.toString()
                                 .toIntOrNull() == null)
                         ) {

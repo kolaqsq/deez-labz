@@ -51,10 +51,10 @@ class MainActivity : AppCompatActivity(), ActivityCallBack {
         nodeViewModel.currentNode.value = node
         val transactionInitialization = supportFragmentManager
             .beginTransaction()
-            .detach(fragmentList[0])
-            .attach(fragmentList[1])
-//            .remove(fragmentList[0])
-//            .replace(R.id.fragment_container, fragmentList[1])
+//            .detach(fragmentList[0])
+//            .attach(fragmentList[1])
+            .remove(fragmentList[0])
+            .replace(R.id.fragment_container, fragmentList[1])
             .addToBackStack("swap fragment")
         transactionInitialization.commit()
         position = 1
