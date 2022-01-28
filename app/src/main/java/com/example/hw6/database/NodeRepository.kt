@@ -19,4 +19,10 @@ class NodeRepository(private val wordDao: NodeDao) {
     suspend fun insert(nodeEntity: NodeEntity) {
         wordDao.insert(nodeEntity)
     }
+
+//    @Suppress("RedundantSuspendModifier")
+//    @WorkerThread
+//    suspend fun loadAll(): Flow<List<NodeEntity>> {
+//        return wordDao.getAll()
+//    }
 }

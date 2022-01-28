@@ -24,7 +24,7 @@ import com.google.android.material.textfield.TextInputLayout
 
 class AllNodesFragment : Fragment() {
     private lateinit var binding: AllNodesFragmentBinding
-    private val adapter = NodeListAdapter()
+    private val adapter = NodeListAdapter(this::showRelations)
     private val nodeViewModel: NodeViewModel by activityViewModels {
         NodeViewModelFactory((activity?.application as HW6).repository)
     }
@@ -97,7 +97,8 @@ class AllNodesFragment : Fragment() {
                         } else {
                             val nodeValue = textInputEditText.text.toString().toInt()
                             Log.d("Value check", nodeValue.toString())
-                            val node = NodeEntity(0, textInputEditText.text.toString().toInt())
+                            val node =
+                                NodeEntity(0, textInputEditText.text.toString().toInt(), listOf())
                             nodeViewModel.insert(node)
                         }
                     }
@@ -110,14 +111,19 @@ class AllNodesFragment : Fragment() {
         binding.recyclerView.layoutManager =
             LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
         binding.recyclerView.adapter = adapter
-
-        nodeViewModel.allNodes.observe(viewLifecycleOwner, { nodes ->
-            // Update the cached copy of the words in the adapter.
-            nodes?.let { adapter.submitList(it) }
-        })
     }
 
     private fun Int.toDp(context: Context): Int = TypedValue.applyDimension(
         TypedValue.COMPLEX_UNIT_DIP, this.toFloat(), context.resources.displayMetrics
     ).toInt()
+
+    private fun showRelations(node: NodeEntity, trigger: String): Unit {
+        when (trigger) {
+            "relations" -> {
+                val activityCallBack = requireActivity() as ActivityCallBack
+                activityCallBack.editRelations(node)
+                return
+            }
+        }
+    }
 }
